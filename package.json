@@ -10,6 +10,7 @@
     "@types/node": "^16.11.62",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
+    "git-cz": "^4.9.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -24,7 +25,21 @@
     "lint": "eslint . --ext ts --ext tsx",
     "lint:fix": "eslint --fix",
     "format": "prettier --write \"./**/*.{ts,tsx,css,md,json}\"",
-    "storybook": "start-storybook -p 6006 -s public"
+    "commit": "git-cz",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "./src/**/*.+(ts|tsx)": [
+      "eslint --fix",
+      "git add"
+    ],
+    "./src/**/*.+(css/scss/ts)": "prettier --write"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   },
   "eslintConfig": {
     "extends": [
@@ -54,6 +69,8 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.8",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
     "prettier": "^2.7.1"
   }
 }
