@@ -21,6 +21,7 @@ module.exports = {
         },
         smoky: {
           DEFAULT: "#544F72",
+          100: "#8C87AB",
         },
         blue: {
           DEFAULT: "#170C5A",
