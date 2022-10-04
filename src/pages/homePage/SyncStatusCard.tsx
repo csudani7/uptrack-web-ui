@@ -17,7 +17,7 @@ const SyncStatusCard: React.FC<IHomePageProps.ISyncStatusProps> = ({ isAutoSyncO
           <div className="flex items-center justify-center overflow-hidden border rounded-full border-gray-150 w-11 h-11">
             <ShopifyIcon />
           </div>
-          <div className="w-16 text-sm font-medium text-center text-black">
+          <div className="text-sm font-medium text-center text-black md:w-32 lg:w-16 md:text-xs lg:text-sm">
             {isAutoSyncOn ? "Automatic Sync" : "Automatic Sync Disabled"}
           </div>
           <div className="flex items-center justify-center overflow-hidden border rounded-full border-gray-150 w-11 h-11">
@@ -33,7 +33,7 @@ const SyncStatusCard: React.FC<IHomePageProps.ISyncStatusProps> = ({ isAutoSyncO
             )}
           />
           {isAutoSyncOn ? (
-            <div className="flex items-center justify-center overflow-hidden text-white rounded-full w-11 h-[37.5px] bg-success">
+            <div className="flex items-center justify-center p-2 text-white rounded-full h-8 w-8 xl:h-[38px] xl:w-[38px] bg-success xl:p-[10px]">
               <SyncIcon />
             </div>
           ) : (

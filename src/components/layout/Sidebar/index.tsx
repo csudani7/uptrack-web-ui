@@ -1,6 +1,6 @@
 //#Global Imports
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import clsx from "clsx";
 //#end Global Imports
 
@@ -9,8 +9,14 @@ import { DashboardIcon, LogsIcon, SettingsIcon, SyncIcon } from "../../../assest
 import ISidebarProps from "./sidebar";
 //#end Local Imports
 
-const Sidebar: React.FC<ISidebarProps.IProps> = ({ isShowSidebar, setIsShowSidebar }) => {
+const Sidebar: React.FC<ISidebarProps.IProps> = ({
+  isShowSidebar,
+  setIsShowSidebar,
+  setisHideOnMobile,
+  isHideOnMobile,
+}) => {
   const [isActive, setIsActive] = useState("/");
+  const navigate = useNavigate();
 
   const menus = [
     {
@@ -29,36 +35,39 @@ const Sidebar: React.FC<ISidebarProps.IProps> = ({ isShowSidebar, setIsShowSideb
       icon: <LogsIcon fillColor={isActive === "/logs" ? "stroke-white" : "stroke-gray-100"} />,
     },
   ];
-
   return (
     <div
       className={clsx(
-        isShowSidebar ? "w-[210px]" : "w-[60px]",
-        "bg-gradient-to-r fixed left-0 h-full from-smoky to bg-blue duration-500 flex flex-col justify-between pb-5",
+        isShowSidebar ? "w-[210px] flex" : "hidden sm:flex sm:w-[60px]",
+        isHideOnMobile && "hidden sm:flex",
+        "bg-gradient-to-r fixed left-0 h-full from-smoky to bg-blue duration-500 flex-col justify-between pb-5",
       )}
     >
       <div>
         {/* HamBerger Section */}
-        <div
-          className="flex flex-col items-end px-4 py-3 space-y-1 text-gray-100 cursor-pointer"
-          onClick={() => setIsShowSidebar(!isShowSidebar)}
-        >
-          <div className="w-6 h-[2px] bg-white" />
-          <div className="w-6 h-[2px] bg-white" />
-          <div className="w-6 h-[2px] bg-white" />
+        <div className={clsx(isShowSidebar ? "justify-end pr-4" : "justify-center", "flex w-full")}>
+          <div
+            className="flex flex-col py-6 space-y-1 text-gray-100 cursor-pointer w-fit"
+            onClick={() => setIsShowSidebar(!isShowSidebar)}
+          >
+            <div className="w-6 h-[2px] bg-white" />
+            <div className="w-6 h-[2px] bg-white" />
+            <div className="w-6 h-[2px] bg-white" />
+          </div>
         </div>
         {/* Company Logo */}
-        <a
-          href="/"
-          className="flex justify-center text-lg text-white font-extrabold mt-10 mb-[70px] "
+        <div
+          className="flex justify-center text-lg text-white font-extrabold mb-[70px] cursor-pointer"
+          onClick={() => navigate("/")}
         >
           {isShowSidebar ? "UPTRACK" : "UT"}
-        </a>
+        </div>
         <div className="relative flex flex-col gap-4">
           {menus.map((menu, i) => (
             <NavLink
               onClick={() => {
                 setIsActive(menu.link);
+                setisHideOnMobile(true);
               }}
               to={menu.link}
               key={i}
@@ -67,7 +76,6 @@ const Sidebar: React.FC<ISidebarProps.IProps> = ({ isShowSidebar, setIsShowSideb
               )}
             >
               <div className={`${isShowSidebar ? "ml-6 duration-300" : "ml-2 duration-300"}`}>
-                {/* {React.createElement(menu.icon, { size: "22" })} */}
                 {menu.icon}
               </div>
               <h2
@@ -101,7 +109,6 @@ const Sidebar: React.FC<ISidebarProps.IProps> = ({ isShowSidebar, setIsShowSideb
           className={clsx("group flex items-center text-sm  gap-3.5 font-medium p-2  rounded-md")}
         >
           <div className={`${isShowSidebar ? "ml-6 duration-300" : "ml-2 duration-300"}`}>
-            {/* {React.createElement(menu.icon, { size: "22" })} */}
             <SettingsIcon fillColor={isActive === "/settings" ? "fill-white" : "fill-gray-100"} />
           </div>
           <h2

@@ -1,12 +1,10 @@
 import React from "react";
 
-declare namespace ISidebarProps {
+declare namespace IHeaderProps {
   export interface IProps {
-    isShowSidebar: boolean;
     setIsShowSidebar: React.Dispatch<React.SetStateAction<boolean>>;
-    isHideOnMobile: boolean;
     setisHideOnMobile: React.Dispatch<React.SetStateAction<boolean>>;
   }
 }
 
-export default ISidebarProps;
+export default IHeaderProps;

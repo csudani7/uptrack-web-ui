@@ -8,6 +8,11 @@ import Sidebar from "../Sidebar";
 
 const ProtectedPageLayout = () => {
   const [isShowSidebar, setIsShowSidebar] = useState(true);
+  const [isHideOnMobile, setisHideOnMobile] = React.useState<boolean>(false);
+
+  React.useEffect(() => {
+    window.innerWidth <= 639 && setIsShowSidebar(false);
+  }, []);
 
   return (
     <div
@@ -17,16 +22,21 @@ const ProtectedPageLayout = () => {
       )}
     >
       <aside className={clsx("flex", isShowSidebar && "!block absolute z-50")}>
-        <Sidebar isShowSidebar={isShowSidebar} setIsShowSidebar={setIsShowSidebar} />
+        <Sidebar
+          isShowSidebar={isShowSidebar}
+          setIsShowSidebar={setIsShowSidebar}
+          isHideOnMobile={isHideOnMobile}
+          setisHideOnMobile={setisHideOnMobile}
+        />
       </aside>
       <div
         className={clsx(
-          isShowSidebar ? "pl-[210px]" : "pl-[60px]",
+          isShowSidebar ? "sm:pl-[210px]" : "sm:pl-[60px]",
           "flex flex-col w-full transition-all delay-150",
         )}
       >
-        <Header />
-        <div className="flex flex-col flex-1 p-10">
+        <Header setIsShowSidebar={setIsShowSidebar} setisHideOnMobile={setisHideOnMobile} />
+        <div className="flex flex-col flex-1 p-3 md:p-10">
           <Outlet />
         </div>
       </div>
