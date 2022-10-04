@@ -21,9 +21,6 @@ function App() {
           <Route path="/logs" element={<Logs />} />
           <Route path="/settings" element={<Settings />} />
         </Route>
-        {/* <div className="flex items-center justify-center w-full h-screen font-bold text-white bg-red-800 text-9xl">
-          UI IS COMING SOON.
-        </div> */}
       </Routes>
     </Router>
   );

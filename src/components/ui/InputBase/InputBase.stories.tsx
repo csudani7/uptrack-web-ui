@@ -8,7 +8,7 @@ import InputBase from ".";
 import { useForm } from "react-hook-form";
 //End Local Imports
 
-const wrapperStyle = "bg-gray-100 p-3 max-w-lg";
+const wrapperStyle = "bg-white p-3 max-w-lg";
 
 storiesOf("Components/Basic/InputBase", module).add("Default", () => {
   const { getValues } = useForm();
@@ -27,7 +27,7 @@ storiesOf("Components/Basic/InputBase", module).add("Default", () => {
           className="mb-5"
           name="username"
           disabled
-          placeholder="Text goes here"
+          placeholder="This is disable Input field"
           value={getValues(`${name}`)}
         />
 
@@ -72,7 +72,7 @@ storiesOf("Components/Basic/InputBase", module).add("Error", () => {
           className="mb-5"
           name="username"
           placeholder="Text goes here"
-          error
+          error={true}
           errorMessage="Error message goes here"
           value={getValues(`${name}`)}
         />
@@ -81,7 +81,7 @@ storiesOf("Components/Basic/InputBase", module).add("Error", () => {
           name="username"
           label="Label"
           placeholder="Text goes here"
-          error
+          error={true}
           errorMessage="Error message goes here"
           value={getValues(`${name}`)}
         />
@@ -90,7 +90,7 @@ storiesOf("Components/Basic/InputBase", module).add("Error", () => {
   );
 });
 
-storiesOf("Components/Basic/InputBase", module).add("Required", () => {
+storiesOf("Components/Basic/InputBase", module).add("Search Input", () => {
   const { getValues } = useForm();
 
   return (
@@ -99,8 +99,8 @@ storiesOf("Components/Basic/InputBase", module).add("Required", () => {
         <InputBase
           className="mb-5"
           name="username"
-          label="Label"
-          placeholder="Text goes here"
+          isSearch={true}
+          placeholder="Search your order...."
           value={getValues(`${name}`)}
         />
       </div>

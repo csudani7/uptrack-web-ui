@@ -10,12 +10,12 @@ declare namespace IInputBaseProps {
     defaultValue?: string;
     disabled?: boolean;
     error?: boolean | string | FieldError;
-    errorMessage?: any;
+    errorMessage?: string;
     fullWidth?: boolean;
     hint?: string;
-    label?: any;
+    label?: string;
     name?: string;
-    placeholder?: string | React.ReactNode;
+    placeholder?: string;
     type?: "text" | "password" | "email" | "number" | "date" | "file";
     value?: string | number;
     onChange?: (e) => void;
@@ -25,6 +25,8 @@ declare namespace IInputBaseProps {
     accept?: string;
     pattern?: string;
     maxLength?: number;
+    placeholderClass?: string;
+    isSearch?: boolean;
   }
 }
 
