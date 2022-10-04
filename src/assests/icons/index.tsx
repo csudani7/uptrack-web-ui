@@ -1,0 +1,14 @@
+export { default as SettingsIcon } from "./SettingsIcon";
+export { default as DashboardIcon } from "./DashboardIcon";
+export { default as SyncIcon } from "./SyncIcon";
+export { default as LogsIcon } from "./LogsIcon";
+export { default as DropdownIcon } from "./DropdownIcon";
+export { default as ShopifyIcon } from "./ShopifyIcon";
+export { default as PaypalIcon } from "./PaypalIcon";
+export { default as SuccessIcon } from "./SuccessIcon";
+export { default as CloseIcon } from "./CloseIcon";
+export { default as PaypalWhiteIcon } from "./PaypalWhiteIcon";
+export { default as TotalOrderIcon } from "./TotalOrderIcon";
+export { default as CompletedIcon } from "./CompletedIcon";
+export { default as StopIcon } from "./StopIcon";
+export { default as SearchIcon } from "./SearchIcon";
