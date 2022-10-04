@@ -12,3 +12,5 @@ export { default as TotalOrderIcon } from "./TotalOrderIcon";
 export { default as CompletedIcon } from "./CompletedIcon";
 export { default as StopIcon } from "./StopIcon";
 export { default as SearchIcon } from "./SearchIcon";
+export { default as DownloadIcon } from "./DownloadIcon";
+export { default as SecondaryPaypalIcon } from "./SecondaryPaypalIcon";

@@ -8,6 +8,7 @@ module.exports = {
           DEFAULT: "#ffffff",
           100: "#F9F9F9",
           150: "#F1F1F1",
+          200: "#F4F4F7",
         },
         black: {
           DEFAULT: "#4A4F56",
@@ -23,7 +24,9 @@ module.exports = {
         },
         blue: {
           DEFAULT: "#170C5A",
+          100: "#241A5F",
         },
+        lightBlue: "#046DB3",
         red: {
           DEFAULT: "#EA5252",
         },
