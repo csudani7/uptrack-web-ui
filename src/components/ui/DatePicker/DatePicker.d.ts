@@ -4,7 +4,7 @@ declare namespace IDatePicker {
     bgDatePicker?: string;
     datepickerClassname?: string;
     selectedDate: string;
-    dateChangeHandler: React.Dispatch<React.SetStateAction<string>>;
+    dateChangeHandler: (value: string) => void;
     disabled?: boolean;
     maxDate?: string;
     minDate?: string;

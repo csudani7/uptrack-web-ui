@@ -15,3 +15,4 @@ export { default as SearchIcon } from "./SearchIcon";
 export { default as DownloadIcon } from "./DownloadIcon";
 export { default as SecondaryPaypalIcon } from "./SecondaryPaypalIcon";
 export { default as InfoIcon } from "./InfoIcon";
+export { default as DatePickerIcon } from "./DatePickerIcon";

@@ -67,11 +67,9 @@ const InputBase = React.forwardRef<HTMLInputElement, IInputBaseProps.IProps>(
             disabled={disabled}
           />
           {isSearch && (
-            <>
-              <div className="absolute top-[1.1rem] left-[14px]">
-                <SearchIcon />
-              </div>
-            </>
+            <div className="absolute top-[1.1rem] left-[14px]">
+              <SearchIcon />
+            </div>
           )}
         </div>
         {error && errorMessage && (

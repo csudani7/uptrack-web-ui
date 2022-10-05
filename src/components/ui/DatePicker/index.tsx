@@ -19,7 +19,7 @@ export const DatePicker: React.FC<IDatePicker.DatePickerProps> = ({
   return (
     <input
       className={clsx(
-        "text-[16px] p-[3px]",
+        "text-xs lg:text-base p-[3px]",
         bgDatePicker,
         datepickerClassname,
         "font-sans w-200px border border-gray-150 border-opacity-30 rounded-sm",
