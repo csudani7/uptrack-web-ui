@@ -13,7 +13,7 @@ declare namespace IInputBaseProps {
     errorMessage?: string;
     fullWidth?: boolean;
     hint?: string;
-    label?: string;
+    label?: string | ReactNode;
     name?: string;
     placeholder?: string;
     type?: "text" | "password" | "email" | "number" | "date" | "file";

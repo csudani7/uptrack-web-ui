@@ -18,6 +18,7 @@ module.exports = {
           DEFAULT: "#F5F5F5",
           100: "#C4C4C4",
           150: "#74778B",
+          200: "#EDEDEE",
         },
         smoky: {
           DEFAULT: "#544F72",

@@ -16,3 +16,6 @@ export { default as DownloadIcon } from "./DownloadIcon";
 export { default as SecondaryPaypalIcon } from "./SecondaryPaypalIcon";
 export { default as InfoIcon } from "./InfoIcon";
 export { default as DatePickerIcon } from "./DatePickerIcon";
+export { default as IntelligenceIcon } from "./IntelligenceIcon";
+export { default as IdIcon } from "./IdIcon";
+export { default as TrueIcon } from "./TrueIcon";

@@ -88,7 +88,7 @@ const Dashboard = () => {
                     )}
                     onClick={() => setSelectedDateRange(data?.value)}
                   >
-                    {data?.name}
+                    {data?.label}
                   </div>
                 );
               })}

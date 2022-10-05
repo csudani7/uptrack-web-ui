@@ -1,4 +1,13 @@
-import { CompletedIcon, PaypalWhiteIcon, StopIcon, TotalOrderIcon } from "../assests/icons";
+import {
+  CompletedIcon,
+  DatePickerIcon,
+  IdIcon,
+  IntelligenceIcon,
+  PaypalWhiteIcon,
+  StopIcon,
+  TotalOrderIcon,
+  TrueIcon,
+} from "../assests/icons";
 
 export const getBreadCrumbsPath = (currentRouter: string) => {
   switch (currentRouter) {
@@ -25,9 +34,21 @@ export const ordersData = [
 ];
 
 export const selectDateRangeData = [
-  { name: "Today", value: "today" },
-  { name: "Yesterday", value: "yesterday" },
-  { name: "Last Week", value: "last-week" },
-  { name: "Last 15 Days", value: "last-15-days" },
-  { name: "Last 30 Days", value: "last-30-days" },
+  { label: "Today", value: "today" },
+  { label: "Yesterday", value: "yesterday" },
+  { label: "Last Week", value: "last-week" },
+  { label: "Last 15 Days", value: "last-15-days" },
+  { label: "Last 30 Days", value: "last-30-days" },
+];
+
+export const syncModeTypeData = [
+  { label: "Automatic Intelligence", value: "automatic-intelligence", icon: <IntelligenceIcon /> },
+  { label: "Date Range", value: "date-range", icon: <DatePickerIcon fillColor="fill-white" /> },
+  { label: "Order ID", value: "order-id", icon: <IdIcon /> },
+];
+
+export const orderIdNumbers = [
+  { label: "0123456789", value: "0123456789", icon: <TrueIcon /> },
+  { label: "1234567890", value: "1234567890", icon: <TrueIcon /> },
+  { label: "11223344556677889900", value: "11223344556677889900", icon: <TrueIcon /> },
 ];
