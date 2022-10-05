@@ -19,3 +19,6 @@ export { default as DatePickerIcon } from "./DatePickerIcon";
 export { default as IntelligenceIcon } from "./IntelligenceIcon";
 export { default as IdIcon } from "./IdIcon";
 export { default as TrueIcon } from "./TrueIcon";
+export { default as UserIcon } from "./UserIcon";
+export { default as CreditCardsIcon } from "./CreditCardsIcon";
+export { default as PencilIcon } from "./PencilIcon";

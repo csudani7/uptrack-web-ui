@@ -1,12 +1,16 @@
 import {
   CompletedIcon,
+  CreditCardsIcon,
   DatePickerIcon,
   IdIcon,
   IntelligenceIcon,
+  PaypalIcon,
   PaypalWhiteIcon,
+  ShopifyIcon,
   StopIcon,
   TotalOrderIcon,
   TrueIcon,
+  UserIcon,
 } from "../assests/icons";
 
 export const getBreadCrumbsPath = (currentRouter: string) => {
@@ -51,4 +55,11 @@ export const orderIdNumbers = [
   { label: "0123456789", value: "0123456789", icon: <TrueIcon /> },
   { label: "1234567890", value: "1234567890", icon: <TrueIcon /> },
   { label: "11223344556677889900", value: "11223344556677889900", icon: <TrueIcon /> },
+];
+
+export const settingsMenuListData = [
+  { label: "Account Details", value: "account-details", icon: <UserIcon /> },
+  { label: "Manage Plan", value: "manage-plan", icon: <CreditCardsIcon /> },
+  { label: "Connect Paypal", value: "connect-paypal", icon: <PaypalIcon /> },
+  { label: "Shopify Settings", value: "shopify-settings", icon: <ShopifyIcon /> },
 ];

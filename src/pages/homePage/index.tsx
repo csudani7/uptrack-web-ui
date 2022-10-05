@@ -5,7 +5,7 @@ import clsx from "clsx";
 //#end Global Imports
 
 //#Local Imports
-import { ordersData, selectDateRangeData } from "../../utils/indes";
+import { ordersData, selectDateRangeData } from "../../utils";
 import SyncStatusCard from "./SyncStatusCard";
 import { DatePicker } from "../../components/ui/DatePicker";
 //#end Local Imports
@@ -79,9 +79,10 @@ const Dashboard = () => {
           <div className="flex flex-col items-start w-full p-5 space-y-5 bg-white rounded-lg">
             <div className="text-lg font-semibold text-black">Select Date Range</div>
             <div className="flex flex-wrap items-center gap-x-4 xl:gap-x-6 gap-y-2 xl:gap-y-0">
-              {selectDateRangeData.map((data) => {
+              {selectDateRangeData.map((data, index) => {
                 return (
                   <div
+                    key={index}
                     className={clsx(
                       selectedDateRange !== data?.value && "text-opacity-50",
                       "text-black font-medium text-xs xl:text-sm cursor-pointer",

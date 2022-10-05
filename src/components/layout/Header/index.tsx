@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 
 //Local Imports
 import { DropdownIcon, SettingsIcon } from "../../../assests/icons";
-import { getBreadCrumbsPath } from "../../../utils/indes";
+import { getBreadCrumbsPath } from "../../../utils";
 import userProfile from "../../../assests/images/svg/upTrackUserProfile.svg";
 import IHeaderProps from "./header";
 //#end Local Imports

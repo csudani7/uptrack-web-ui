@@ -5,7 +5,7 @@ import clsx from "clsx";
 //#end Global Imports
 
 //#Local Imports
-import { orderIdNumbers, syncModeTypeData } from "../../utils/indes";
+import { orderIdNumbers, syncModeTypeData } from "../../utils";
 import ToggleButton from "../../components/ui/ToggleButton";
 import Button from "../../components/ui/Button";
 import { DatePicker } from "../../components/ui/DatePicker";
@@ -42,9 +42,10 @@ const SyncMode = () => {
         How do you want to sync your orders?
       </div>
       <div className="flex flex-col items-center justify-start w-full md:items-start lg:items-center lg:flex-row gap-x-10 gap-y-4 lg:gap-y-0">
-        {syncModeTypeData?.map((data) => {
+        {syncModeTypeData?.map((data, index) => {
           return (
             <div
+              key={index}
               className={clsx(
                 syncModeType === data?.value ? "border border-blue-100 " : "opacity-50",
                 "flex lg:flex-col items-center p-2 lg:p-5 bg-white-200 rounded-lg gap-y-6 cursor-pointer min-w-full md:min-w-[240px] lg:min-w-[192px] xl:min-w-[240px] gap-x-4 lg:gap-x-0",
@@ -149,9 +150,10 @@ const SyncMode = () => {
               />
             </div>
             <div className="flex flex-wrap items-center justify-start gap-2">
-              {orderIdNumbers?.map((data) => {
+              {orderIdNumbers?.map((data, index) => {
                 return (
                   <div
+                    key={index}
                     className="bg-gray-200 py-[3px] px-3 rounded-[1000px] gap-x-1 flex items-center justify-center cursor-pointer"
                     onClick={() => setOrderId(data?.value)}
                   >
