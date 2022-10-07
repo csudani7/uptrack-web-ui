@@ -35,6 +35,7 @@ const Sidebar: React.FC<ISidebarProps.IProps> = ({
       icon: <LogsIcon fillColor={isActive === "/logs" ? "stroke-white" : "stroke-gray-100"} />,
     },
   ];
+
   return (
     <div
       className={clsx(
@@ -58,7 +59,7 @@ const Sidebar: React.FC<ISidebarProps.IProps> = ({
         {/* Company Logo */}
         <div
           className="flex justify-center text-lg text-white font-extrabold mb-[70px] cursor-pointer"
-          onClick={() => (setisHideOnMobile(true), navigate("/"))}
+          onClick={() => (setisHideOnMobile(true), setIsActive("/"), navigate("/"))}
         >
           {isShowSidebar ? "UPTRACK" : "UT"}
         </div>
