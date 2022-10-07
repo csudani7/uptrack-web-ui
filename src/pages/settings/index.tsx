@@ -28,15 +28,15 @@ const Settings = () => {
   };
 
   return (
-    <div className="flex items-start justify-between w-full h-full p-5 gap-x-1">
+    <div className="flex flex-col items-start justify-between w-full h-full xl:flex-row gap-x-1 gap-y-4 xl:gap-y-0">
       {/* Setting Menu List Section */}
-      <div className="flex flex-col justify-start w-1/4 min-h-full p-10 bg-white rounded-lg">
+      <div className="flex flex-col justify-start w-full p-4 bg-white rounded-lg xl:p-10 xl:min-h-full xl:w-1/4">
         {settingsMenuListData?.map((data, index) => (
           <div
             key={index}
             className={clsx(
               currentMenu === data?.value && "bg-white-250 rounded",
-              "flex items-center justify-start w-full gap-x-5 mb-[26px] text-black text-sm font-medium cursor-pointer p-[10px]",
+              "flex items-center justify-start w-full gap-x-5 last:mb-0 mb-[26px] text-black text-sm font-medium cursor-pointer p-[10px]",
             )}
             onClick={() => setCurrentMenu(data?.value)}
           >
@@ -46,9 +46,9 @@ const Settings = () => {
         ))}
       </div>
       {/* Selected Settings Menu Content Section */}
-      <div className="flex flex-col justify-start w-3/4 min-h-full p-10 bg-white rounded-lg">
+      <div className="flex flex-col justify-start w-full min-h-full p-4 bg-white rounded-lg lg:p-10 xl:w-3/4">
         {currentMenu === "account-details" && (
-          <div className="flex flex-col items-start justify-start">
+          <div className="flex flex-col items-center justify-start lg:items-start">
             <div className="mb-10 text-lg font-semibold text-black">Account Details</div>
             {/* Profile Picture Section */}
             <div className="relative">
@@ -65,9 +65,12 @@ const Settings = () => {
                 onChange={(event) => setProfileImage(URL.createObjectURL(event?.target?.files[0]))}
               />
             </div>
-            <form className="flex flex-col items-start w-1/2 mt-5" onSubmit={submitHandler}>
-              <div className="flex items-center w-full gap-2 mb-4">
-                <div className="w-1/2">
+            <form
+              className="flex flex-col items-center w-full mt-5 xl:items-start xl:w-1/2 lg:w-1/2"
+              onSubmit={submitHandler}
+            >
+              <div className="flex flex-col items-center w-full gap-2 mb-4 xl:flex-row">
+                <div className="w-full xl:w-1/2">
                   <InputBase
                     type="text"
                     name="firstName:"
@@ -82,7 +85,7 @@ const Settings = () => {
                     }
                   />
                 </div>
-                <div className="w-1/2">
+                <div className="w-full xl:w-1/2">
                   <InputBase
                     type="text"
                     name="lastName"
@@ -152,7 +155,7 @@ const Settings = () => {
                   borderWidth: "border",
                   borderRadius: "rounded",
                 }}
-                rootClassName="py-2 px-[18px] w-full"
+                rootClassName="py-2 px-[18px] lg:w-full w-full md:w-1/2"
               >
                 Update
               </Button>
