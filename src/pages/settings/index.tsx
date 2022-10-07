@@ -7,6 +7,8 @@ import clsx from "clsx";
 import { settingsMenuListData } from "../../utils";
 import userProfileImage from "../../assests/images/svg/userAccountProfileImage.svg";
 import AccountDetails from "./AccountDetails";
+import Button from "../../components/ui/Button";
+import { SecondaryPaypalIcon } from "../../assests/icons";
 //#end Local Imports
 
 const Settings = () => {
@@ -53,6 +55,40 @@ const Settings = () => {
             setUserAccountDetails={setUserAccountDetails}
             submitHandler={submitHandler}
           />
+        )}
+        {currentMenu === "manage-plan" && (
+          <div className="flex flex-col items-center justify-start lg:items-start">
+            <div className="mb-10 text-lg font-semibold text-black">Manage Plan</div>
+          </div>
+        )}
+        {currentMenu === "connect-paypal" && (
+          <div className="flex flex-col items-start justify-start">
+            <div className="mb-10 text-lg font-semibold text-black">Connect Paypal</div>
+            <div className="w-[250px]">
+              <Button
+                bgColor="bg-lightBlue"
+                fontStyle={{
+                  fontSize: "text-base",
+                  fontWeight: "font-medium",
+                  fontColor: "text-white",
+                }}
+                bordertyle={{
+                  borderColor: "border-blue-100 border-opacity-5",
+                  borderWidth: "border",
+                  borderRadius: "rounded",
+                }}
+                rootClassName="py-[11px] px-12 w-full"
+                preffixIcon={<SecondaryPaypalIcon />}
+              >
+                Connect Paypal
+              </Button>
+            </div>
+          </div>
+        )}
+        {currentMenu === "shopify-settings" && (
+          <div className="flex flex-col items-center justify-start lg:items-start">
+            <div className="mb-10 text-lg font-semibold text-black">Shopify Settings</div>
+          </div>
         )}
       </div>
     </div>
