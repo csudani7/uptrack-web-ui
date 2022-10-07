@@ -80,7 +80,7 @@ const ManagePlan: React.FC<ISettingsProps.IManagePlanProps> = ({
               }}
               rootClassName="py-2 px-[18px] w-full"
             >
-              Selected
+              {selectedPlan === "free" ? "Selected" : "Install"}
             </Button>
           </div>
         </div>
@@ -149,7 +149,7 @@ const ManagePlan: React.FC<ISettingsProps.IManagePlanProps> = ({
               }}
               rootClassName="py-2 px-[18px] w-full"
             >
-              Install
+              {selectedPlan === "unlimited" ? "Selected" : "Install"}
             </Button>
           </div>
         </div>
