@@ -58,7 +58,7 @@ const Sidebar: React.FC<ISidebarProps.IProps> = ({
         {/* Company Logo */}
         <div
           className="flex justify-center text-lg text-white font-extrabold mb-[70px] cursor-pointer"
-          onClick={() => navigate("/")}
+          onClick={() => (setisHideOnMobile(true), navigate("/"))}
         >
           {isShowSidebar ? "UPTRACK" : "UT"}
         </div>
@@ -104,6 +104,7 @@ const Sidebar: React.FC<ISidebarProps.IProps> = ({
         <NavLink
           onClick={() => {
             setIsActive("/settings");
+            setisHideOnMobile(true);
           }}
           to={"/settings"}
           className={clsx("group flex items-center text-sm  gap-3.5 font-medium p-2  rounded-md")}
