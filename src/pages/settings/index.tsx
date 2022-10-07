@@ -9,6 +9,7 @@ import userProfileImage from "../../assests/images/svg/userAccountProfileImage.s
 import AccountDetails from "./AccountDetails";
 import Button from "../../components/ui/Button";
 import { SecondaryPaypalIcon } from "../../assests/icons";
+import ManagePlan from "./ManagePlan";
 //#end Local Imports
 
 const Settings = () => {
@@ -21,6 +22,7 @@ const Settings = () => {
     oldPassword: "",
     newPassword: "",
   });
+  const [selectedPlan, setSelectedPlan] = React.useState<string>("unlimited");
 
   const submitHandler = (event: any) => {
     event.preventDefault();
@@ -57,9 +59,7 @@ const Settings = () => {
           />
         )}
         {currentMenu === "manage-plan" && (
-          <div className="flex flex-col items-center justify-start lg:items-start">
-            <div className="mb-10 text-lg font-semibold text-black">Manage Plan</div>
-          </div>
+          <ManagePlan selectedPlan={selectedPlan} setSelectedPlan={setSelectedPlan} />
         )}
         {currentMenu === "connect-paypal" && (
           <div className="flex flex-col items-start justify-start">

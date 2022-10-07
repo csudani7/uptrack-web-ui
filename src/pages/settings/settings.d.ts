@@ -16,6 +16,11 @@ declare namespace ISettingsProps {
     setUserAccountDetails: React.Dispatch<React.SetStateAction<userAccountDetails>>;
     submitHandler: (e) => void;
   }
+
+  export interface IManagePlanProps {
+    selectedPlan: string;
+    setSelectedPlan: React.Dispatch<React.SetStateAction<string>>;
+  }
 }
 
 export default ISettingsProps;
