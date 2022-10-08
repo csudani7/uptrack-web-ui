@@ -5,9 +5,11 @@ import clsx from "clsx";
 //#end Global Imports
 
 //#Local Imports
-import { ordersData, selectDateRangeData } from "../../utils";
 import SyncStatusCard from "./SyncStatusCard";
 import { DatePicker } from "../../components/ui/DatePicker";
+import InputBase from "../../components/ui/InputBase";
+import { Table } from "../../components/ui/Table";
+import { orderLogsColumnsData, orderLogsData, ordersData, selectDateRangeData } from "../../utils";
 //#end Local Imports
 
 const Dashboard = () => {
@@ -15,6 +17,8 @@ const Dashboard = () => {
   const [selectedDateRange, setSelectedDateRange] = React.useState<string>("last-15-days");
   const [selectedStartDate, setSelecteStartdDate] = React.useState(moment().format("YYYY-MM-DD"));
   const [selectedEndDate, setSelecteEnddDate] = React.useState(moment().format("YYYY-MM-DD"));
+  const [searchedOrder, setSearchedOrder] = React.useState<string>("");
+
   const handleStartDateChange = (value: string) => {
     setSelecteStartdDate(value);
   };
@@ -113,7 +117,22 @@ const Dashboard = () => {
           <div className="w-full bg-white rounded-lg">Order Summary Chart</div>
         </div>
       </div>
-      <div className="w-full bg-white rounded-lg"> Order Logs Table</div>
+      <div className="flex flex-col justify-between w-full p-5 bg-white rounded-lg gap-y-10">
+        <div className="flex flex-col items-start justify-between lg:items-center md:flex-row gap-y-4 lg:gap-y-4">
+          <div className="text-lg font-semibold text-black">Orders Log</div>
+          <div>
+            <InputBase
+              name="searchOrder"
+              isSearch={true}
+              placeholder="Search your order...."
+              onChange={(e) => setSearchedOrder(e.target.value)}
+              fullWidth={true}
+              value={searchedOrder}
+            />
+          </div>
+        </div>
+        <Table data={orderLogsData} columns={orderLogsColumnsData} isPagination={false} />
+      </div>
     </div>
   );
 };
