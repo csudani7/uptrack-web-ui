@@ -45,6 +45,7 @@ const Logs = () => {
       setSelecteEnddDate(moment().format("YYYY-MM-DD"));
     }
   }, [selectedDateRange]);
+
   return (
     <div className="flex flex-col gap-y-5">
       <div className="flex flex-col items-start w-full p-5 bg-white rounded-lg gap-y-10">
@@ -80,9 +81,9 @@ const Logs = () => {
         </div>
       </div>
       <div className="flex flex-col justify-between w-full p-5 bg-white rounded-lg gap-y-10">
-        <div className="flex flex-col items-start justify-between lg:items-center md:flex-row gap-y-4 lg:gap-y-4">
+        <div className="flex flex-col items-start justify-between lg:items-center lg:flex-row gap-y-4 lg:gap-y-4">
           <div className="text-lg font-semibold text-black">Orders Log</div>
-          <div className="flex items-center gap-x-[10px] w-fit">
+          <div className="sm:flex-row flex-col-reverse flex sm:justify-end sm:items-center gap-y-2 sm:gap-y-0 gap-x-[10px] lg:w-fit items-end w-full">
             <div>
               <InputBase
                 name="searchOrder"
@@ -93,11 +94,11 @@ const Logs = () => {
                 value={searchedOrder}
               />
             </div>
-            <div>
+            <div className="self-end">
               <Button
                 bgColor="bg-gradient-to-r from-smoky to bg-blue"
                 fontStyle={{
-                  fontSize: "text-base",
+                  fontSize: "text-xs lg:text-sm",
                   fontWeight: "font-medium",
                   fontColor: "text-white",
                 }}
@@ -107,7 +108,7 @@ const Logs = () => {
                   borderRadius: "rounded",
                 }}
                 preffixIcon={<DownloadIcon />}
-                rootClassName="py-2 px-4 w-auto"
+                rootClassName="py-2 lg:py-[0.38rem] px-1 md:px-4 w-auto"
               >
                 Export CSV
               </Button>

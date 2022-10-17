@@ -57,7 +57,7 @@ const InputBase = React.forwardRef<HTMLInputElement, IInputBaseProps.IProps>(
             className={clsx(
               error ? "border-red-500 focus:border-red-500" : "border-black focus:border-black",
               isSearch ? "pl-[38px] pr-[18px]" : "px-[18px]",
-              "rounded-[5px] w-full h-full text-black text-base font-medium border peer focus:outline-none  py-3 placeholder-black placeholder:font-medium placeholder:text-base placeholder:opacity-50 bg-black-100 bg-opacity-50",
+              "rounded-[5px] w-full h-full text-black text-base font-medium border peer focus:outline-none py-[0.35rem] placeholder-black placeholder:font-medium placeholder:text-base placeholder:opacity-50 bg-black-100 bg-opacity-50",
               inputClasses,
               placeholderClass,
             )}
@@ -67,7 +67,7 @@ const InputBase = React.forwardRef<HTMLInputElement, IInputBaseProps.IProps>(
             disabled={disabled}
           />
           {isSearch && (
-            <div className="absolute top-[1.1rem] left-[14px]">
+            <div className="absolute top-[0.6rem] left-[14px]">
               <SearchIcon />
             </div>
           )}

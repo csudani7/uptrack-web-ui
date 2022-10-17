@@ -23,3 +23,5 @@ export { default as UserIcon } from "./UserIcon";
 export { default as CreditCardsIcon } from "./CreditCardsIcon";
 export { default as PencilIcon } from "./PencilIcon";
 export { default as SortingIcon } from "./SortingIcon";
+export { default as NextPageIcon } from "./NextPageIcon";
+export { default as PreviousPageIcon } from "./PreviousPageIcon";
