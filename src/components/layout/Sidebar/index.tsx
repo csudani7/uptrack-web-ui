@@ -1,6 +1,6 @@
 //#Global Imports
 import React, { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import clsx from "clsx";
 //#end Global Imports
 
@@ -15,8 +15,9 @@ const Sidebar: React.FC<ISidebarProps.IProps> = ({
   setisHideOnMobile,
   isHideOnMobile,
 }) => {
-  const [isActive, setIsActive] = useState("/");
   const navigate = useNavigate();
+  const location = useLocation();
+  const [isActive, setIsActive] = useState(location?.pathname);
 
   const menus = [
     {
