@@ -36,6 +36,10 @@ module.exports = {
         success: {
           DEFAULT: "#1EC26A",
           100: "#008060",
+          200: "#1EC26A",
+        },
+        red: {
+          DEFAULT: "#EA5252",
         },
         error: "#FF0000",
       },

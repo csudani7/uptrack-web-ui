@@ -2,6 +2,14 @@
 import React from "react";
 import moment from "moment";
 import clsx from "clsx";
+import {
+  HorizontalGridLines,
+  makeVisFlexible,
+  VerticalBarSeries,
+  XAxis,
+  XYPlot,
+  YAxis,
+} from "react-vis";
 //#end Global Imports
 
 //#Local Imports
@@ -50,6 +58,26 @@ const Dashboard = () => {
     }
   }, [selectedDateRange]);
 
+  const useWindowSize = () => {
+    const [size, setSize] = React.useState([0, 0]);
+    React.useLayoutEffect(() => {
+      function updateSize() {
+        setSize([
+          chartParentdiv?.current?.clientWidth || 400,
+          chartParentdiv?.current?.clientHeight || 400,
+        ]);
+      }
+      window.addEventListener("resize", updateSize);
+      updateSize();
+      return () => window.removeEventListener("resize", updateSize);
+    }, []);
+    return size;
+  };
+
+  const FlexibleXYPlot = makeVisFlexible(XYPlot);
+  const [width, height] = useWindowSize();
+  const chartParentdiv = React.useRef<HTMLDivElement>(null);
+
   return (
     <div className="flex flex-col items-center justify-between gap-5">
       <div className="flex flex-col items-start justify-between w-full gap-5 md:flex-row">
@@ -61,7 +89,10 @@ const Dashboard = () => {
             {ordersData.map((data, index) => {
               return (
                 <div
-                  className="flex items-center justify-between w-full p-5 bg-white rounded-lg lg:w-[47%] mb-5"
+                  className={clsx(
+                    index < ordersData?.length - 2 && "mb-5",
+                    "flex items-center justify-between w-full p-5 bg-white rounded-lg lg:w-[47%]",
+                  )}
                   key={index}
                 >
                   <div className="flex flex-col items-start justify-between lg:w-3/4">
@@ -78,7 +109,7 @@ const Dashboard = () => {
             })}
           </div>
         </div>
-        <div className="flex flex-col w-full space-y-4 md:w-1/2">
+        <div className="flex flex-col w-full space-y-5 md:w-1/2">
           {/* Selecte Date Range Card Section */}
           <div className="flex flex-col items-start w-full p-5 space-y-5 bg-white rounded-lg">
             <div className="text-lg font-semibold text-black">Select Date Range</div>
@@ -114,9 +145,171 @@ const Dashboard = () => {
               />
             </div>
           </div>
-          <div className="w-full bg-white rounded-lg">Order Summary Chart</div>
+          {/* Orders Summary Bar Chart */}
+          <div className="bg-white rounded-lg h-[298px] p-5" ref={chartParentdiv}>
+            <div className="flex justify-between w-full mb-10">
+              <div className="text-lg font-semibold text-black">Orders Summary</div>
+              <div className="flex items-center gap-x-4">
+                <div className="text-[10px] font-medium text-black flex items-center gap-x-1">
+                  <div className="w-2 h-2 rounded-full bg-success" />
+                  <div>Completed Orders</div>
+                </div>
+                <div className="text-[10px] font-medium text-black flex items-center gap-x-1">
+                  <div className="w-2 h-2 rounded-full bg-red" />
+                  <div>Unfullfilled Orders</div>
+                </div>
+              </div>
+            </div>
+            <FlexibleXYPlot
+              width={width - 40}
+              height={height - 100}
+              stackBy="y"
+              xDomain={[
+                "Jan",
+                "Feb",
+                "Mar",
+                "Apr",
+                "May",
+                "Jun",
+                "Jul",
+                "Aug",
+                "Sep",
+                "Oct",
+                "Nov",
+                "Dec",
+              ]}
+              yDomain={[0, 5]}
+              xType="ordinal"
+            >
+              <HorizontalGridLines />
+              <XAxis
+                style={{
+                  text: { stroke: "none", fill: "#052142", fontWeight: 500, opacity: "0.2" },
+                }}
+              />
+              <YAxis
+                tickFormat={(v) => `${v}k`}
+                tickValues={[0, 1, 2, 3, 4, 5]}
+                hideLine
+                style={{
+                  text: { stroke: "none", fill: "#052142", fontWeight: 500, opacity: "0.2" },
+                }}
+              />
+              <VerticalBarSeries
+                barWidth={0.2}
+                color="#EA5252"
+                data={[
+                  {
+                    x: "Jan",
+                    y: 1,
+                  },
+                  {
+                    x: "Feb",
+                    y: 1.7,
+                  },
+                  {
+                    x: "Mar",
+                    y: 1.3,
+                  },
+                  {
+                    x: "Apr",
+                    y: 1.5,
+                  },
+                  {
+                    x: "May",
+                    y: 1.1,
+                  },
+                  {
+                    x: "Jun",
+                    y: 1.3,
+                  },
+                  {
+                    x: "Jul",
+                    y: 1.8,
+                  },
+                  {
+                    x: "Aug",
+                    y: 1.7,
+                  },
+                  {
+                    x: "Sep",
+                    y: 1.5,
+                  },
+                  {
+                    x: "Oct",
+                    y: 1.9,
+                  },
+                  {
+                    x: "Nov",
+                    y: 2.1,
+                  },
+                  {
+                    x: "Dec",
+                    y: 2.2,
+                  },
+                ]}
+                className="mr-1"
+              />
+              <VerticalBarSeries
+                barWidth={0.2}
+                color="#1EC26A"
+                data={[
+                  {
+                    x: "Jan",
+                    y: 1,
+                  },
+                  {
+                    x: "Feb",
+                    y: 1.5,
+                  },
+                  {
+                    x: "Mar",
+                    y: 1.5,
+                  },
+                  {
+                    x: "Apr",
+                    y: 1.4,
+                  },
+                  {
+                    x: "May",
+                    y: 1,
+                  },
+                  {
+                    x: "Jun",
+                    y: 1.3,
+                  },
+                  {
+                    x: "Jul",
+                    y: 1.9,
+                  },
+                  {
+                    x: "Aug",
+                    y: 1.6,
+                  },
+                  {
+                    x: "Sep",
+                    y: 1.4,
+                  },
+                  {
+                    x: "Oct",
+                    y: 2,
+                  },
+                  {
+                    x: "Nov",
+                    y: 2.1,
+                  },
+                  {
+                    x: "Dec",
+                    y: 2.5,
+                  },
+                ]}
+                className="mr-1"
+              />
+            </FlexibleXYPlot>
+          </div>
         </div>
       </div>
+      {/* Orders log Table Section */}
       <div className="flex flex-col justify-between w-full p-5 bg-white rounded-lg gap-y-10">
         <div className="flex flex-col items-start justify-between lg:items-center md:flex-row gap-y-4 lg:gap-y-4">
           <div className="text-lg font-semibold text-black">Orders Log</div>
