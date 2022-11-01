@@ -1,3 +1,5 @@
+import { ReactElement } from "react";
+
 declare namespace IDatePicker {
   export interface DatePickerProps {
     id?: string;
@@ -8,6 +10,7 @@ declare namespace IDatePicker {
     disabled?: boolean;
     maxDate?: string;
     minDate?: string;
+    calendarIcon?: ReactElement;
   }
 }
 

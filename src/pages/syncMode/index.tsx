@@ -10,7 +10,7 @@ import ToggleButton from "../../components/ui/ToggleButton";
 import Button from "../../components/ui/Button";
 import { DatePicker } from "../../components/ui/DatePicker";
 import InputBase from "../../components/ui/InputBase";
-import { InfoIcon } from "../../assests/icons";
+import { DatePickerIcon, InfoIcon } from "../../assests/icons";
 //#end Local Imports
 
 const SyncMode = () => {
@@ -90,17 +90,19 @@ const SyncMode = () => {
             </div>
             <div className="flex flex-wrap items-center gap-2 lg:gap-4">
               <DatePicker
-                datepickerClassname="w-28 lg:w-auto"
+                datepickerClassname="!w-[140px]"
                 selectedDate={selectedStartDate}
                 dateChangeHandler={handleStartDateChange}
+                calendarIcon={<DatePickerIcon />}
               />
               <div className="text-xs font-medium text-opacity-50 lg:text-base text-gray-150">
                 To
               </div>
               <DatePicker
-                datepickerClassname="w-28 lg:w-auto"
+                datepickerClassname="!w-[140px]"
                 selectedDate={selectedEndDate}
                 dateChangeHandler={handleEndDateChange}
+                calendarIcon={<DatePickerIcon />}
               />
             </div>
             <div className="flex flex-col items-start">

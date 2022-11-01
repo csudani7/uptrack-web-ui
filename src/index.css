@@ -20,4 +20,28 @@ code {
     -webkit-appearance: none;
     margin: 0;
   }
+
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    z-index: 100;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  input[type="date"]::-webkit-datetime-edit {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 15px;
+    color: #4a4f56;
+    font-weight: 500;
+    font-size: 16px;
+  }
+
+  input[type="date"] {
+    display: flex;
+    flex-flow: row-reverse;
+    padding: 6px 0px 6px 15px;
+    height: auto;
+    width: fit-content;
+    border-radius: 4px;
+  }
 }

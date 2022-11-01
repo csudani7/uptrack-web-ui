@@ -4,12 +4,14 @@ import clsx from "clsx";
 //#end Global Imports
 
 //#Local Imports
-import { settingsMenuListData } from "../../utils";
-import userProfileImage from "../../assests/images/svg/userAccountProfileImage.svg";
+import ManagePlan from "./ManagePlan";
 import AccountDetails from "./AccountDetails";
 import Button from "../../components/ui/Button";
+import RadioButton from "../../components/ui/RadioButton";
 import { SecondaryPaypalIcon } from "../../assests/icons";
-import ManagePlan from "./ManagePlan";
+import { settingsMenuListData, shopifySettingList } from "../../utils";
+import userProfileImage from "../../assests/images/svg/userAccountProfileImage.svg";
+import InputBase from "../../components/ui/InputBase";
 //#end Local Imports
 
 const Settings = () => {
@@ -23,10 +25,15 @@ const Settings = () => {
     newPassword: "",
   });
   const [selectedPlan, setSelectedPlan] = React.useState<string>("unlimited");
+  const [isChecked, setIsChecked] = React.useState<number>(0);
+  const [customLink, setCustomLink] = React.useState<string>("");
 
   const submitHandler = (event: any) => {
     event.preventDefault();
-    window.console.log(userAccountDetails, "userAccountDetails");
+  };
+
+  const changeSettingHandler = (value: number) => {
+    setIsChecked(Number(value));
   };
 
   return (
@@ -86,8 +93,48 @@ const Settings = () => {
           </div>
         )}
         {currentMenu === "shopify-settings" && (
-          <div className="flex flex-col items-center justify-start lg:items-start">
+          <div className="flex flex-col items-start justify-start">
             <div className="mb-10 text-lg font-semibold text-black">Shopify Settings</div>
+            {shopifySettingList.map((data, i) => (
+              <div key={i} className="flex items-start justify-start mb-6">
+                <div className="mt-1 mr-2">
+                  <RadioButton onChangeHandler={changeSettingHandler} value={data?.id} />
+                </div>
+                <div
+                  className={clsx(
+                    isChecked !== data?.id && "text-opacity-50",
+                    "text-sm lg:text-base font-medium text-black mr-3",
+                  )}
+                >
+                  {data.label}
+                </div>
+                <div className="relative">
+                  <div className={clsx(data?.id === 2 && "peer cursor-pointer", "mt-[2px]")}>
+                    {data.icon}
+                  </div>
+                  <div className="hidden peer-hover:block absolute w-6 h-3 -ml-3  after:absolute after:w-3 after:h-3 after:left-1/3 after:rotate-45 after:translate-x-1/2 after:translate-y-1/2 after:bg-black after:content-['']" />
+                  <div className="absolute hidden p-2 lg:p-4 text-sm lg:text-lg font-medium text-white bg-black bottom peer-hover:block top-[1.9rem] -right-4 lg:-right-8 z-10">
+                    <div>For example:</div>
+                    <div>{`www.trackingmore.com/en/{tracking_number}`}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+            {isChecked === 4 && (
+              <div className="w-full md:w-[400px]">
+                <InputBase
+                  type="text"
+                  className="mb-4"
+                  name="customLink"
+                  placeholder="example.com/anything?{tracking_code}"
+                  fullWidth={true}
+                  value={customLink}
+                  onChange={(event) => setCustomLink(event.target.value)}
+                  placeholderClass="lg:placeholder:text-base placeholder:!text-xs"
+                  inputClasses="!py-3"
+                />
+              </div>
+            )}
           </div>
         )}
       </div>

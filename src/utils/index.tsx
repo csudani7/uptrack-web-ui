@@ -3,6 +3,7 @@ import {
   CreditCardsIcon,
   DatePickerIcon,
   IdIcon,
+  InfoIcon,
   IntelligenceIcon,
   PaypalIcon,
   PaypalWhiteIcon,
@@ -33,7 +34,7 @@ export const getBreadCrumbsPath = (currentRouter: string) => {
 export const ordersData = [
   { title: "Total Orders", ordersCount: "1,235", icon: <TotalOrderIcon /> },
   { title: "Paypal Orders", ordersCount: "1,200", icon: <PaypalWhiteIcon /> },
-  { title: "Completed Paypal Orders", ordersCount: "1,235", icon: <CompletedIcon /> },
+  { title: "Completed Orders", ordersCount: "1,235", icon: <CompletedIcon /> },
   { title: "Unfulfilled Orders", ordersCount: "1,235", icon: <StopIcon /> },
 ];
 
@@ -1696,4 +1697,23 @@ export const orderLogsData = [
     message: "Added Tracking Info successfully",
     time: "2020-02-29 00:00:08",
   },
+];
+
+export const shopifySettingList = [
+  {
+    id: 1,
+    label: "Fetch Tracking URL from Shopify Directly.",
+    icon: <InfoIcon />,
+  },
+  {
+    id: 2,
+    label: "Use Tracking More As Default Tracking Link Website Directory For All Your Trackings",
+    icon: <InfoIcon />,
+  },
+  {
+    id: 3,
+    label: "Use 17Track.net As Default Tracking Link Website Directory For All Your Trackings.",
+    icon: <InfoIcon />,
+  },
+  { id: 4, label: "Custom Link", icon: <InfoIcon /> },
 ];

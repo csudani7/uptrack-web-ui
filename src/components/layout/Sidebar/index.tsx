@@ -37,6 +37,10 @@ const Sidebar: React.FC<ISidebarProps.IProps> = ({
     },
   ];
 
+  React.useEffect(() => {
+    setIsActive(location?.pathname);
+  }, [location]);
+
   return (
     <div
       className={clsx(
@@ -77,7 +81,7 @@ const Sidebar: React.FC<ISidebarProps.IProps> = ({
                 "group flex items-center text-sm  gap-3.5 font-medium p-2  rounded-md",
               )}
             >
-              <div className={`${isShowSidebar ? "ml-6 duration-300" : "ml-2 duration-300"}`}>
+              <div className={`${isShowSidebar ? "ml-6 duration-300" : "ml-3 duration-300"}`}>
                 {menu.icon}
               </div>
               <h2

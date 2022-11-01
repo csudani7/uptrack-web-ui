@@ -18,6 +18,7 @@ import { DatePicker } from "../../components/ui/DatePicker";
 import InputBase from "../../components/ui/InputBase";
 import { Table } from "../../components/ui/Table";
 import { orderLogsColumnsData, orderLogsData, ordersData, selectDateRangeData } from "../../utils";
+import { DatePickerIcon } from "../../assests/icons";
 //#end Local Imports
 
 const Dashboard = () => {
@@ -80,8 +81,8 @@ const Dashboard = () => {
 
   return (
     <div className="flex flex-col items-center justify-between gap-5">
-      <div className="flex flex-col items-start justify-between w-full gap-5 md:flex-row">
-        <div className="flex flex-col w-full gap-5 md:w-1/2">
+      <div className="flex flex-col items-start justify-between w-full gap-5 lg:flex-row">
+        <div className="flex flex-col w-full gap-5 lg:w-1/2">
           {/* Sync Statuc Component */}
           <SyncStatusCard isAutoSyncOn={isAutoSyncOn} />
           {/* Orders Card Section */}
@@ -90,8 +91,7 @@ const Dashboard = () => {
               return (
                 <div
                   className={clsx(
-                    index < ordersData?.length - 2 && "mb-5",
-                    "flex items-center justify-between w-full p-5 bg-white rounded-lg lg:w-[47%]",
+                    "flex items-center justify-between w-full p-5 bg-white rounded-lg lg:w-[47%] mb-5",
                   )}
                   key={index}
                 >
@@ -109,11 +109,11 @@ const Dashboard = () => {
             })}
           </div>
         </div>
-        <div className="flex flex-col w-full space-y-5 md:w-1/2">
+        <div className="flex flex-col w-full space-y-5 lg:w-1/2">
           {/* Selecte Date Range Card Section */}
           <div className="flex flex-col items-start w-full p-5 space-y-5 bg-white rounded-lg">
             <div className="text-lg font-semibold text-black">Select Date Range</div>
-            <div className="flex flex-wrap items-center gap-x-4 xl:gap-x-6 gap-y-2 xl:gap-y-0">
+            <div className="flex items-center lg:gap-x-2 gap-x-4 xl:gap-x-6 gap-y-2 xl:gap-y-0">
               {selectDateRangeData.map((data, index) => {
                 return (
                   <div
@@ -129,26 +129,30 @@ const Dashboard = () => {
                 );
               })}
             </div>
-            <div className="flex flex-wrap items-center gap-2 lg:gap-4">
+            <div className="flex items-center gap-2 xl:gap-4">
               <DatePicker
-                datepickerClassname="w-28 lg:w-auto"
+                datepickerClassname="!w-[140px]"
                 selectedDate={selectedStartDate}
                 dateChangeHandler={handleStartDateChange}
+                calendarIcon={<DatePickerIcon />}
               />
               <div className="text-xs font-medium text-opacity-50 lg:text-base text-gray-150">
                 To
               </div>
               <DatePicker
-                datepickerClassname="w-28 lg:w-auto"
+                datepickerClassname="!w-[140px]"
                 selectedDate={selectedEndDate}
                 dateChangeHandler={handleEndDateChange}
+                calendarIcon={<DatePickerIcon />}
               />
             </div>
           </div>
           {/* Orders Summary Bar Chart */}
           <div className="bg-white rounded-lg h-[298px] p-5" ref={chartParentdiv}>
             <div className="flex justify-between w-full mb-10">
-              <div className="text-lg font-semibold text-black">Orders Summary</div>
+              <div className="text-xs font-semibold text-black sm:text-lg lg:text-xs xl:text-lg">
+                Orders Summary
+              </div>
               <div className="flex items-center gap-x-4">
                 <div className="text-[10px] font-medium text-black flex items-center gap-x-1">
                   <div className="w-2 h-2 rounded-full bg-success" />

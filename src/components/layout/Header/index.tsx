@@ -1,6 +1,6 @@
 //Global Imports
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 //#end Global Imports
 
 //Local Imports
@@ -12,6 +12,7 @@ import IHeaderProps from "./header";
 
 const Header: React.FC<IHeaderProps.IProps> = ({ setIsShowSidebar, setisHideOnMobile }) => {
   const router = useLocation();
+  const navigate = useNavigate();
 
   return (
     <div className="flex items-center justify-between w-full bg-white h-[60px] px-3 sm:pl-10 sm:pr-5">
@@ -42,7 +43,7 @@ const Header: React.FC<IHeaderProps.IProps> = ({ setIsShowSidebar, setisHideOnMo
             <DropdownIcon />
           </div>
         </div>
-        <div className="cursor-pointer">
+        <div className="cursor-pointer" onClick={() => navigate("/settings")}>
           <SettingsIcon />
         </div>
       </div>

@@ -3,11 +3,19 @@ import moment from "moment";
 import { storiesOf } from "@storybook/react";
 
 import { DatePicker } from ".";
+import { DatePickerIcon } from "../../../assests/icons";
 
 storiesOf("Components/Basic/DatePicker", module).add("Simple", () => {
   const [selectedDate, setSelectedDate] = React.useState(moment(new Date()).format());
   const handleDateChange = (value: string) => {
     setSelectedDate(value);
   };
-  return <DatePicker selectedDate={selectedDate} dateChangeHandler={handleDateChange} />;
+
+  return (
+    <DatePicker
+      selectedDate={selectedDate}
+      dateChangeHandler={handleDateChange}
+      calendarIcon={<DatePickerIcon />}
+    />
+  );
 });

@@ -25,3 +25,4 @@ export { default as PencilIcon } from "./PencilIcon";
 export { default as SortingIcon } from "./SortingIcon";
 export { default as NextPageIcon } from "./NextPageIcon";
 export { default as PreviousPageIcon } from "./PreviousPageIcon";
+export { default as MostPopularBanner } from "./MostPopularBanner";

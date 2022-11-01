@@ -4,7 +4,7 @@ import clsx from "clsx";
 //#end Global Imports
 
 //Local Imports
-import { InfoIcon } from "../../assests/icons";
+import { InfoIcon, MostPopularBanner } from "../../assests/icons";
 import Button from "../../components/ui/Button";
 import ISettingsProps from "./settings";
 //#end Local Imports
@@ -16,7 +16,7 @@ const ManagePlan: React.FC<ISettingsProps.IManagePlanProps> = ({
   return (
     <div className="flex flex-col items-center justify-start xl:items-start">
       <div className="mb-10 text-lg font-semibold text-black">Manage Plan</div>
-      <div className="flex flex-wrap items-center m-auto xl:flex-row gap-x-5 gap-y-10">
+      <div className="flex flex-wrap items-center justify-center m-auto xl:flex-row gap-x-5 gap-y-10">
         {/* Free Plan Card */}
         <div
           className={clsx(
@@ -88,10 +88,13 @@ const ManagePlan: React.FC<ISettingsProps.IManagePlanProps> = ({
         <div
           className={clsx(
             selectedPlan === "free" && "border-opacity-5",
-            "flex flex-col items-center justify-between p-8 border-2 border-blue-100 rounded-lg cursor-pointer",
+            "flex flex-col items-center justify-between p-8 border-2 border-blue-100 rounded-lg cursor-pointer relative",
           )}
           onClick={() => setSelectedPlan("unlimited")}
         >
+          <div className="absolute -top-7 -right-[1.7rem]">
+            <MostPopularBanner />
+          </div>
           <div className="text-sm font-bold text-success-100 py-[5px] px-[10px] bg-success-100 bg-opacity-10 mb-4 uppercase">
             Unlimited
           </div>
