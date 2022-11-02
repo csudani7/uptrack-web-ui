@@ -32,7 +32,7 @@ const ProtectedPageLayout = () => {
       <div
         className={clsx(
           isShowSidebar ? "sm:pl-[210px]" : "sm:pl-[60px]",
-          "flex flex-col w-full transition-all delay-150",
+          "flex flex-col w-full transition-all delay-[22] duration-500",
         )}
       >
         <Header setIsShowSidebar={setIsShowSidebar} setisHideOnMobile={setisHideOnMobile} />
