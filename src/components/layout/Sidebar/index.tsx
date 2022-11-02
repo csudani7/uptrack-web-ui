@@ -115,7 +115,7 @@ const Sidebar: React.FC<ISidebarProps.IProps> = ({
           to={"/settings"}
           className={clsx("group flex items-center text-sm  gap-3.5 font-medium p-2  rounded-md")}
         >
-          <div className={`${isShowSidebar ? "ml-6 duration-300" : "ml-2 duration-300"}`}>
+          <div className={`${isShowSidebar ? "ml-6 duration-300" : "ml-3 duration-300"}`}>
             <SettingsIcon fillColor={isActive === "/settings" ? "fill-white" : "fill-gray-100"} />
           </div>
           <h2
